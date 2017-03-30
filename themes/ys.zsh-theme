@@ -12,6 +12,16 @@ YS_VCS_PROMPT_SUFFIX="%{$reset_color%}"
 YS_VCS_PROMPT_DIRTY=" %{$fg[red]%}x"
 YS_VCS_PROMPT_CLEAN=" %{$fg[green]%}o"
 
+# add git remote branch into PROMPT
+local git_remote_info='$(git_prompt_remote_info)'
+git_prompt_remote_info() {
+	if git rev-parse --abbrev-ref @{upstream} > /dev/null 2>&1
+	then
+		REMOTE_BRANCH="$(git rev-parse --abbrev-ref @{upstream})"
+		echo " %{$fg[cyan]%}@{$REMOTE_BRANCH}"
+	fi
+}
+
 # Git info
 local git_info='$(git_prompt_info)'
 ZSH_THEME_GIT_PROMPT_PREFIX="${YS_VCS_PROMPT_PREFIX1}git${YS_VCS_PROMPT_PREFIX2}"
@@ -55,6 +65,7 @@ PROMPT="
 %{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%}\
 ${hg_info}\
 ${git_info}\
+${git_remote_info}\
  \
 %{$fg[white]%}[%*] $exit_code
 %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
