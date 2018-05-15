@@ -92,3 +92,5 @@ alias gk="gitk --all --branches > /dev/null 2>&1 &"
 alias lt='l -t'
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias typora="open -a typora"
+alias glogh="glog | head -n 5"
+alias sudo="sudo "  # refer to https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
