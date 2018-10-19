@@ -94,3 +94,4 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias typora="open -a typora"
 alias glogh="glog | head -n 5"
 alias sudo="sudo "  # refer to https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
+alias git='LANG=en_US git'  # refer to https://stackoverflow.com/questions/10633564/how-does-one-change-the-language-of-the-command-line-interface-of-git
